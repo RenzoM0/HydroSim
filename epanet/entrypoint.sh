@@ -1,4 +1,4 @@
-#!/bin/sh
+﻿#!/bin/sh
 
 # Find any .inp file in the /app folder
 INP_FILE=$(find /app -name "*.inp" | head -n 1)

@@ -1,4 +1,4 @@
-#!/bin/bash 
+﻿#!/bin/bash 
 # modifying openplc database
 # https://github.com/thiagoralves/OpenPLC_v3/blob/master/webserver/openplc.db
 

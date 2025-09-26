@@ -1,4 +1,4 @@
-#!/bin/bash
+﻿#!/bin/bash
 echo "Content-type: text/plain"
 echo
 echo "THIS SCRIPT IS NOT VULNERABLE"
