@@ -1,0 +1,4 @@
+[Fri Sep 26 17:49:32.589697 2025] [log_config:error] [pid 1] (21)Is a directory: AH00649: could not open transfer log file /var/log/apache2/access.log.
+AH00015: Unable to open logs
+[Fri Sep 26 17:50:30.881280 2025] [log_config:error] [pid 1] (21)Is a directory: AH00649: could not open transfer log file /var/log/apache2/access.log.
+AH00015: Unable to open logs
