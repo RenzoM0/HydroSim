@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 
 #modifying openplc database
 /OpenPLC_v3/database.sh

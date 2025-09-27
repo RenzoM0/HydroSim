@@ -1,19 +1,17 @@
-# Dockerfile
-
 # Use a base Python image
 FROM python:3.12-slim
 
-# Install epyt
-RUN pip install epyt
+WORKDIR /app
 
-# Install pymodbus
-RUN pip install pymodbus
+# Install dependencies
+RUN pip install --no-cache-dir epyt pymodbus
 
-# Copy the entrypoint script into the container
+# Copy files
 COPY entrypoint.sh /entrypoint.sh
+COPY app/ /app/
 
-# Give execute permission to the entrypoint script
+# Ensure script is executable
 RUN chmod +x /entrypoint.sh
 
-# Set the entrypoint to the script
+# Run entrypoint
 ENTRYPOINT ["/entrypoint.sh"]

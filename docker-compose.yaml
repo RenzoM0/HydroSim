@@ -32,7 +32,7 @@ services:
     environment:
       - CATALINA_OPTS=-Xmx2G -Xms2G
     ports:
-      - "8081:8080" # Used for external access and debugging
+      - "8081:8080"
     depends_on:
       - database
     expose:
@@ -57,19 +57,25 @@ services:
       - database
 
   database:
-    container_name: database
     image: mysql/mysql-server:8.0.32
+    container_name: database
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_USER=root
       - MYSQL_PASSWORD=root
       - MYSQL_DATABASE=scadalts
-    expose:
-      - "3306"
+    ports:
+      - "3306:3306"
     volumes:
-      - ./scadalts/db_data:/var/lib/mysql:rw
+      - db_data:/var/lib/mysql   # ✅ named volume
       - ./scadalts/db_conf:/etc/mysql:ro
     command: --log_bin_trust_function_creators=1
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
     networks:
       - database
 
@@ -84,7 +90,7 @@ services:
         script: watertanklogica.st
         database: database.sh
     ports:
-      - "8082:8080" # Used for external access and debugging
+      - "8082:8080"
     expose:
       - "502"
       - "8080"
@@ -102,7 +108,7 @@ services:
         script: waterwijklogica.st
         database: database.sh
     ports:
-      - "8083:8080" # Used for external access and debugging
+      - "8083:8080"
     expose:
       - "502"
       - "8080"
@@ -120,7 +126,7 @@ services:
         script: waterwijklogica.st
         database: database.sh
     ports:
-      - "8084:8080" # Used for external access and debugging
+      - "8084:8080"
     expose:
       - "502"
       - "8080"
@@ -138,7 +144,7 @@ services:
         script: waterwijklogica.st
         database: database.sh
     ports:
-      - "8085:8080" # Used for external access and debugging
+      - "8085:8080"
     expose:
       - "502"
       - "8080"
@@ -156,7 +162,7 @@ services:
         script: waterwijklogica.st
         database: database.sh
     ports:
-      - "8086:8080" # Used for external access and debugging
+      - "8086:8080"
     expose:
       - "502"
       - "8080"
@@ -185,11 +191,12 @@ services:
         hard: 65536
     ports:
       - 9200:9200
-      - 9600:9600 # required for Performance Analyzer
+      - 9600:9600
     volumes:
       - opensearch-data1:/usr/share/opensearch/data
     networks:
       - opensearch-net
+
   opensearch-dashboards:
     image: opensearchproject/opensearch-dashboards:latest
     container_name: opensearch-dashboards
@@ -201,6 +208,7 @@ services:
       OPENSEARCH_HOSTS: '["https://opensearch-node1:9200"]'
     networks:
       - opensearch-net
+
   fluent-bit:
     container_name: fluent-bit
     image: docker.io/fluent/fluent-bit
@@ -209,6 +217,7 @@ services:
       - ./webserver/log/apache2/access.log:/var/log/test.log
     networks:
       - opensearch-net
+
   data-prepper:
     image: opensearchproject/data-prepper:2
     container_name: data-prepper
@@ -218,9 +227,10 @@ services:
     ports:
       - 2021:2021
     networks:
-    - opensearch-net
+      - opensearch-net
 
 volumes:
+  db_data:             # ✅ toegevoegd voor MySQL
   opensearch-data1:
 
 networks:

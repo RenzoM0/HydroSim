@@ -2,3 +2,21 @@
 AH00015: Unable to open logs
 [Fri Sep 26 17:50:30.881280 2025] [log_config:error] [pid 1] (21)Is a directory: AH00649: could not open transfer log file /var/log/apache2/access.log.
 AH00015: Unable to open logs
+[Sat Sep 27 14:50:32.713448 2025] [log_config:error] [pid 1] (21)Is a directory: AH00649: could not open transfer log file /var/log/apache2/access.log.
+AH00015: Unable to open logs
+[Sat Sep 27 14:54:48.555000 2025] [log_config:error] [pid 1] (21)Is a directory: AH00649: could not open transfer log file /var/log/apache2/access.log.
+AH00015: Unable to open logs
+[Sat Sep 27 15:18:12.641504 2025] [log_config:error] [pid 1] (21)Is a directory: AH00649: could not open transfer log file /var/log/apache2/access.log.
+AH00015: Unable to open logs
+[Sat Sep 27 15:26:22.266464 2025] [log_config:error] [pid 1] (21)Is a directory: AH00649: could not open transfer log file /var/log/apache2/access.log.
+AH00015: Unable to open logs
+[Sat Sep 27 15:32:00.406271 2025] [log_config:error] [pid 1] (21)Is a directory: AH00649: could not open transfer log file /var/log/apache2/access.log.
+AH00015: Unable to open logs
+[Sat Sep 27 15:38:08.181381 2025] [log_config:error] [pid 1] (21)Is a directory: AH00649: could not open transfer log file /var/log/apache2/access.log.
+AH00015: Unable to open logs
+[Sat Sep 27 15:38:41.449302 2025] [log_config:error] [pid 1] (21)Is a directory: AH00649: could not open transfer log file /var/log/apache2/access.log.
+AH00015: Unable to open logs
+[Sat Sep 27 15:41:16.619227 2025] [log_config:error] [pid 1] (21)Is a directory: AH00649: could not open transfer log file /var/log/apache2/access.log.
+AH00015: Unable to open logs
+[Sat Sep 27 15:47:19.624081 2025] [log_config:error] [pid 1] (21)Is a directory: AH00649: could not open transfer log file /var/log/apache2/access.log.
+AH00015: Unable to open logs
